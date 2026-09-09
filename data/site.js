@@ -18,7 +18,6 @@ export const site = {
       { label: "Contact", href: "/contact" },
     ],
     support: [
-      { label: "FAQs", href: "/faqs" },
       { label: "Contact Us", href: "/contact" },
     ],
   },

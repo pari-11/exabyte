@@ -36,8 +36,12 @@ export default function CoursesPage() {
           the course and the learning format that fits your child best.
         </p>
         <div className="mt-8 flex flex-col sm:flex-row gap-4">
-          <Button variant="secondary">Book a Free Demo</Button>
-          <Button variant="secondary">Talk to Us</Button>
+          <EnquiryTriggerButton variant="secondary">
+            Book a Free Demo
+          </EnquiryTriggerButton>
+          <Button href="/contact" variant="secondary">
+            Talk to Us
+          </Button>
         </div>
       </Section>
 
@@ -135,8 +139,12 @@ export default function CoursesPage() {
           format.
         </p>
         <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-          <Button variant="secondary">Book a Free Demo</Button>
-          <Button variant="secondary">Talk to Us</Button>
+          <EnquiryTriggerButton variant="secondary">
+            Book a Free Demo
+          </EnquiryTriggerButton>
+          <Button href="/contact" variant="secondary">
+            Talk to Us
+          </Button>
         </div>
       </Section>
     </main>
