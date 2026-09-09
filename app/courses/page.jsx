@@ -2,6 +2,7 @@ import { FaRobot, FaBrain, FaPen } from "react-icons/fa";
 import Section from "@/components/ui/Section";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
+import EnquiryTriggerButton from "@/components/enquiry/EnquiryTriggerButton";
 import { courses, formats } from "@/data/courses";
 
 const courseIcons = {
@@ -114,7 +115,9 @@ export default function CoursesPage() {
                 })}
               </ul>
 
-              <Button className="mt-6 w-full">{format.ctaLabel}</Button>
+              <EnquiryTriggerButton format={format.slug} className="mt-6 w-full">
+                {format.ctaLabel}
+              </EnquiryTriggerButton>
             </Card>
           ))}
         </div>

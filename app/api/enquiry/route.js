@@ -23,6 +23,7 @@ export async function POST(request) {
     mobile: data.mobile,
     city: data.city || null,
     course: data.course,
+    format: data.format || null,
     message: data.message,
     consent: data.consent,
     submittedAt: new Date().toISOString(),
