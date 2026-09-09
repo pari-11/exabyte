@@ -1,5 +1,6 @@
-import { NextResponse } from "next/server";
+import { NextResponse, after } from "next/server";
 import { validateEnquiry, isValid } from "@/lib/validation";
+import { sendEnquiryNotification, sendEnquiryConfirmation } from "@/lib/email";
 
 export async function POST(request) {
   let data;
@@ -27,6 +28,27 @@ export async function POST(request) {
     message: data.message,
     consent: data.consent,
     submittedAt: new Date().toISOString(),
+  });
+
+  try {
+    await sendEnquiryNotification(data);
+  } catch (err) {
+    console.error("Failed to send enquiry notification email:", err);
+    return NextResponse.json(
+      {
+        ok: false,
+        errors: { form: "Something went wrong — please try again." },
+      },
+      { status: 502 }
+    );
+  }
+
+  after(async () => {
+    try {
+      await sendEnquiryConfirmation(data);
+    } catch (err) {
+      console.error("Failed to send enquiry confirmation email:", err);
+    }
   });
 
   return NextResponse.json({ ok: true });
