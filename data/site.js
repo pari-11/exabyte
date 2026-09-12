@@ -1,7 +1,7 @@
 export const site = {
   name: "Exabyte Academy",
   tagline: "Learn. Build. Innovate.",
-  phone: "+91 98765 43210",
+  phone: "+91 98508 81431",
   email: "info@exabyteacademy.com",
   address: "123 MG Road, Bengaluru, Karnataka 560001",
   navLinks: [
