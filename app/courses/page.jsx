@@ -1,4 +1,4 @@
-import { FaRobot, FaBrain, FaPen } from "react-icons/fa";
+import { FaRobot, FaBrain, FaPen, FaFilePdf } from "react-icons/fa";
 import Section from "@/components/ui/Section";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
@@ -32,17 +32,11 @@ export default function CoursesPage() {
           Courses built to turn curiosity into real skills
         </h1>
         <p className="mt-4 max-w-xl text-white/90">
-          From hands-on robotics to practical AI and technical writing, find
-          the course and the learning format that fits your child best.
+          At Exabyte Academy, learning goes beyond textbooks. Our
+          project-based courses in Robotics, AI, and Technical Writing build
+          practical skills, creativity, and confidence — inspiring curiosity
+          and preparing students for whatever comes next.
         </p>
-        <div className="mt-8 flex flex-col sm:flex-row gap-4">
-          <EnquiryTriggerButton variant="secondary">
-            Book a Free Demo
-          </EnquiryTriggerButton>
-          <Button href="/contact" variant="secondary">
-            Talk to Us
-          </Button>
-        </div>
       </Section>
 
       <Section background="white">
@@ -53,7 +47,7 @@ export default function CoursesPage() {
           {courses.map((course) => {
             const Icon = courseIcons[course.icon];
             return (
-              <Card key={course.slug}>
+              <Card key={course.slug} className="h-full flex flex-col">
                 {Icon && (
                   <Icon size={28} className="text-primary" aria-hidden="true" />
                 )}
@@ -63,11 +57,23 @@ export default function CoursesPage() {
                 <p className="mt-2 text-sm text-navy/80">
                   {course.description}
                 </p>
+                <p className="mt-2 text-sm text-navy/70 flex-1">
+                  {course.longDescription}
+                </p>
                 {course.isOnline && (
                   <p className="mt-3 text-xs font-medium text-primary">
                     Available online
                   </p>
                 )}
+                <a
+                  href={course.syllabus}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-accent rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                >
+                  <FaFilePdf aria-hidden="true" />
+                  Check Syllabus
+                </a>
               </Card>
             );
           })}
@@ -76,7 +82,7 @@ export default function CoursesPage() {
 
       <Section background="sky">
         <h2 className="font-heading text-2xl sm:text-3xl font-semibold text-ink">
-          Choose Your Learning Format
+          Find The Right Learning Plan
         </h2>
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6">
           {formats.map((format) => (
@@ -84,7 +90,9 @@ export default function CoursesPage() {
               <h3 className="font-heading text-lg font-semibold text-ink">
                 {format.name}
               </h3>
-              <p className="mt-1 text-sm text-primary">{format.tagline}</p>
+              <p className="mt-1 text-sm font-medium text-primary">
+                {format.tagline}
+              </p>
               <p className="mt-2 text-sm text-navy/80">
                 {format.description}
               </p>
@@ -95,20 +103,33 @@ export default function CoursesPage() {
                   return (
                     <li
                       key={course.slug}
-                      className="border-t border-line pt-3 first:border-t-0 first:pt-0"
+                      className="border-t border-line pt-4 first:border-t-0 first:pt-0"
                     >
-                      <p className="text-sm font-medium text-ink">
+                      <p className="text-sm font-semibold text-ink">
                         {course.name}
                       </p>
                       {offering.status === "available" ? (
-                        <p className="mt-1 text-sm text-navy/80">
-                          {formatFee(offering.fee)}
-                          {offering.feeUnit === "per-student" &&
-                            " per student"}
-                          {" · "}
-                          {offering.duration.hours} hours over{" "}
-                          {offering.duration.weeks} weeks
-                        </p>
+                        <>
+                          <ul className="mt-2 list-disc pl-5 flex flex-col gap-1">
+                            {offering.bullets.map((bullet) => (
+                              <li
+                                key={bullet}
+                                className="text-sm text-navy/80"
+                              >
+                                {bullet}
+                              </li>
+                            ))}
+                          </ul>
+                          <p className="mt-2 text-sm text-navy/70">
+                            Duration: {offering.duration.hours} Hours ·{" "}
+                            {offering.duration.weeks} Weeks
+                          </p>
+                          <p className="mt-1 text-sm font-semibold text-ink">
+                            Course Fee: {formatFee(offering.fee)}
+                            {offering.feeUnit === "per-student" &&
+                              " per student"}
+                          </p>
+                        </>
                       ) : (
                         <p className="mt-1 text-sm text-navy/60 italic">
                           {offering.message}

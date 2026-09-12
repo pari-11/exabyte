@@ -6,16 +6,19 @@ export const site = {
   address: "123 MG Road, Bengaluru, Karnataka 560001",
   navLinks: [
     { label: "Home", href: "/" },
+    { label: "About Us", href: "/about" },
     { label: "Courses", href: "/courses" },
-    { label: "About", href: "/about" },
-    { label: "Contact", href: "/contact" },
+    { label: "Robotics Summer Camp", href: "/robotics-summer-camp" },
+    { label: "Blog", href: "/blog" },
   ],
   footerLinks: {
     explore: [
       { label: "Home", href: "/" },
+      { label: "About Us", href: "/about" },
       { label: "Courses", href: "/courses" },
-      { label: "About", href: "/about" },
-      { label: "Contact", href: "/contact" },
+      { label: "Robotics Summer Camp", href: "/robotics-summer-camp" },
+      { label: "Blog", href: "/blog" },
+      { label: "Book a Free Demo", href: "/contact" },
     ],
     support: [
       { label: "Contact Us", href: "/contact" },

@@ -2,23 +2,29 @@ export const formats = [
   {
     slug: "personal-mentoring",
     name: "Personal Mentoring",
-    tagline: "One-to-one, at your doorstep",
-    description: "One-to-one sessions at the student's home",
+    tagline: "Learn One-on-One with an Expert (1:1 Private Sessions)",
+    description:
+      "Enjoy a completely personalized learning experience at your doorstep with dedicated instructor attention. Ideal for students who want customized guidance, faster progress, and flexible scheduling.",
     ctaLabel: "Enquire Now",
+    image: "/images/formats/personal-mentoring.svg",
   },
   {
     slug: "community-learning",
     name: "Community Learning",
-    tagline: "Learn together, in small groups",
-    description: "Small groups — societies, schools, friend groups",
+    tagline: "Learn Together. Grow Together.",
+    description:
+      "Perfect for apartment societies, schools, clubs, or groups of friends who enjoy learning in a collaborative environment.",
     ctaLabel: "Book a Group Session",
+    image: "/images/formats/community-learning.svg",
   },
   {
     slug: "academy-classroom",
     name: "Academy Classroom",
-    tagline: "At the academy, with full lab access",
-    description: "At the academy, with lab access",
+    tagline: "Learn at Exabyte Academy",
+    description:
+      "Experience structured classroom learning with access to our robotics lab, experienced mentors, modern equipment, and an engaging learning environment.",
     ctaLabel: "Visit Our Academy",
+    image: "/images/formats/academy-classroom.svg",
   },
 ];
 
@@ -26,69 +32,116 @@ export const courses = [
   {
     slug: "robotics",
     name: "Robotics",
+    emoji: "🤖",
     description: "Electronics, Arduino, sensors, motors, building real robots",
+    longDescription:
+      "A hands-on introduction to electronics and robotics — students wire circuits, program Arduino boards, and work with sensors and motors to design, build, and demonstrate their own working robots.",
     icon: "robotics",
     isOnline: false,
+    syllabus: "/syllabus/robotics-syllabus.pdf",
     offerings: {
       "personal-mentoring": {
         status: "available",
         fee: 12000,
         feeUnit: "flat",
         duration: { hours: 24, weeks: 6 },
+        bullets: [
+          "Individual mentoring",
+          "Hands-on practical sessions",
+          "Build real robotics projects",
+        ],
       },
       "community-learning": {
         status: "available",
         fee: 5000,
         feeUnit: "per-student",
         duration: { hours: 24, weeks: 6 },
+        bullets: [
+          "Small group learning",
+          "Team-based projects",
+          "Interactive classroom activities",
+        ],
       },
       "academy-classroom": {
         status: "available",
         fee: 8000,
         feeUnit: "flat",
         duration: { hours: 24, weeks: 6 },
+        bullets: [
+          "Hands-on robotics lab",
+          "Practical experiments",
+          "Guided project work",
+        ],
       },
     },
   },
   {
     slug: "artificial-intelligence",
     name: "Artificial Intelligence",
+    emoji: "🧠",
     description: "Machine learning, computer vision, AI tools, hands-on projects",
+    longDescription:
+      "A practical, project-first introduction to machine learning, computer vision, and modern AI tools — students build and apply real AI projects instead of only studying theory.",
     icon: "ai",
     isOnline: false,
+    syllabus: "/syllabus/artificial-intelligence-syllabus.pdf",
     offerings: {
       "personal-mentoring": {
         status: "available",
         fee: 8000,
         feeUnit: "flat",
         duration: { hours: 24, weeks: 6 },
+        bullets: [
+          "One-to-one AI coaching",
+          "Interactive projects",
+          "Practical learning approach",
+        ],
       },
       "community-learning": {
         status: "available",
         fee: 5000,
         feeUnit: "per-student",
         duration: { hours: 24, weeks: 6 },
+        bullets: [
+          "Learn with friends",
+          "AI activities and projects",
+          "Fun collaborative sessions",
+        ],
       },
       "academy-classroom": {
         status: "available",
         fee: 8000,
         feeUnit: "flat",
         duration: { hours: 24, weeks: 6 },
+        bullets: [
+          "Classroom AI learning",
+          "Interactive demonstrations",
+          "Real-world AI activities",
+        ],
       },
     },
   },
   {
     slug: "technical-writing",
     name: "Technical Writing",
+    emoji: "📝",
     description: "Documentation, style guides, technical communication",
+    longDescription:
+      "A live, instructor-led course in technical communication — students write real documentation, learn industry style guides, and leave with a portfolio of published work.",
     icon: "writing",
     isOnline: true,
+    syllabus: "/syllabus/technical-writing-syllabus.pdf",
     offerings: {
       "personal-mentoring": {
         status: "available",
         fee: 15000,
         feeUnit: "flat",
         duration: { hours: 25, weeks: 5 },
+        bullets: [
+          "Live online instructor-led sessions",
+          "Real documentation assignments",
+          "Portfolio development",
+        ],
       },
       "community-learning": {
         status: "unavailable",

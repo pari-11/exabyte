@@ -68,24 +68,25 @@ export default function Home() {
           {courses.map((course) => {
             const Icon = courseIcons[course.icon];
             return (
-              <Link key={course.slug} href="/courses">
-                <Card className="h-full transition-shadow hover:shadow-md">
-                  {Icon && (
-                    <Icon size={28} className="text-primary" aria-hidden="true" />
-                  )}
-                  <h3 className="mt-4 font-heading text-lg font-semibold text-ink">
-                    {course.name}
-                  </h3>
-                  <p className="mt-2 text-sm text-navy/80">
-                    {course.description}
-                  </p>
-                </Card>
-              </Link>
+              <Card key={course.slug} className="h-full flex flex-col">
+                {Icon && (
+                  <Icon size={28} className="text-primary" aria-hidden="true" />
+                )}
+                <h3 className="mt-4 font-heading text-lg font-semibold text-ink">
+                  {course.name}
+                </h3>
+                <p className="mt-2 text-sm text-navy/80 flex-1">
+                  {course.description}
+                </p>
+                <Link
+                  href="/courses"
+                  className="mt-4 inline-flex items-center text-sm font-medium text-primary hover:text-accent rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                >
+                  Know More →
+                </Link>
+              </Card>
             );
           })}
-        </div>
-        <div className="mt-10 flex justify-center">
-          <Button href="/courses">View All Courses</Button>
         </div>
       </Section>
 
@@ -113,16 +114,23 @@ export default function Home() {
 
       <Section background="white">
         <h2 className="font-heading text-2xl sm:text-3xl font-semibold text-ink">
-          Choose Your Learning Format
+          Find The Right Learning Plan
         </h2>
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6">
           {formats.map((format) => (
             <Link key={format.slug} href={`/courses#${format.slug}`}>
-              <Card className="h-full transition-shadow hover:shadow-md">
-                <h3 className="font-heading text-lg font-semibold text-ink">
-                  {format.name}
-                </h3>
-                <p className="mt-1 text-sm text-primary">{format.tagline}</p>
+              <Card className="h-full overflow-hidden p-0 transition-shadow hover:shadow-md">
+                <img
+                  src={format.image}
+                  alt={format.name}
+                  className="h-40 w-full object-cover"
+                />
+                <div className="p-6">
+                  <h3 className="font-heading text-lg font-semibold text-ink">
+                    {format.name}
+                  </h3>
+                  <p className="mt-1 text-sm text-primary">{format.tagline}</p>
+                </div>
               </Card>
             </Link>
           ))}

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" role="img" aria-label="Community learning illustration">
+  <rect width="400" height="240" fill="#EAF7EF"/>
+  <path d="M0 200 L400 200 L400 240 L0 240 Z" fill="#D2EEDC"/>
+  <circle cx="140" cy="120" r="26" fill="#2F9E5B"/>
+  <path d="M104 190 c0 -25 16 -42 36 -42 s36 17 36 42 Z" fill="#2F9E5B"/>
+  <circle cx="220" cy="105" r="30" fill="#3FB86E"/>
+  <path d="M180 190 c0 -29 18 -47 40 -47 s40 18 40 47 Z" fill="#3FB86E"/>
+  <circle cx="300" cy="125" r="24" fill="#7ED09B"/>
+  <path d="M268 190 c0 -23 14 -39 32 -39 s32 16 32 39 Z" fill="#7ED09B"/>
+</svg>
