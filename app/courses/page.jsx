@@ -27,17 +27,19 @@ export default function CoursesPage() {
     <main>
       <Section
         background="none"
-        className="bg-gradient-to-br from-primary to-accent text-white"
+        className="hero-gradient overflow-hidden text-white"
       >
-        <h1 className="font-heading text-3xl sm:text-4xl font-semibold max-w-2xl">
-          Courses built to turn curiosity into real skills
-        </h1>
-        <p className="mt-4 max-w-xl text-white/90">
-          At Exabyte Academy, learning goes beyond textbooks. Our
-          project-based courses in Robotics, AI, and Technical Writing build
-          practical skills, creativity, and confidence — inspiring curiosity
-          and preparing students for whatever comes next.
-        </p>
+        <div className="relative z-10">
+          <h1 className="font-heading text-3xl sm:text-4xl font-semibold max-w-2xl">
+            Courses built to turn curiosity into real skills
+          </h1>
+          <p className="mt-4 max-w-xl text-white/90">
+            At Exabyte Academy, learning goes beyond textbooks. Our
+            project-based courses in Robotics, AI, and Technical Writing
+            build practical skills, creativity, and confidence — inspiring
+            curiosity and preparing students for whatever comes next.
+          </p>
+        </div>
       </Section>
 
       <Section background="white">
@@ -151,7 +153,7 @@ export default function CoursesPage() {
 
       <Section
         background="none"
-        className="bg-footer text-white text-center"
+        className="footer-gradient text-white text-center"
       >
         <h2 className="font-heading text-2xl sm:text-3xl font-semibold">
           Ready to start your child&apos;s learning journey?

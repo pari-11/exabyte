@@ -2,7 +2,7 @@ export const formats = [
   {
     slug: "personal-mentoring",
     name: "Personal Mentoring",
-    tagline: "Learn One-on-One with an Expert (1:1 Private Sessions)",
+    tagline: "Learn One-on-One with an Expert",
     description:
       "Enjoy a completely personalized learning experience at your doorstep with dedicated instructor attention. Ideal for students who want customized guidance, faster progress, and flexible scheduling.",
     ctaLabel: "Enquire Now",

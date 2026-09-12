@@ -146,7 +146,7 @@ export default function EnquiryModal({ isOpen, context, triggerEl, onClose }) {
           type="button"
           onClick={onClose}
           aria-label="Close"
-          className="absolute right-4 top-4 text-navy/60 hover:text-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+          className="absolute right-4 top-4 rounded-sm text-navy/60 transition-all duration-150 hover:-translate-y-0.5 hover:text-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
         >
           <span aria-hidden="true" className="text-xl leading-none">
             ×

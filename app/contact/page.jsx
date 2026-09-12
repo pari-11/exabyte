@@ -15,15 +15,17 @@ export default function ContactPage() {
     <main>
       <Section
         background="none"
-        className="bg-gradient-to-br from-primary to-accent text-white"
+        className="hero-gradient overflow-hidden text-white"
       >
-        <h1 className="font-heading text-3xl sm:text-4xl font-semibold max-w-2xl">
-          Get in touch
-        </h1>
-        <p className="mt-4 max-w-xl text-white/90">
-          Have a question about our courses? Send us an enquiry and
-          we&apos;ll get back to you.
-        </p>
+        <div className="relative z-10">
+          <h1 className="font-heading text-3xl sm:text-4xl font-semibold max-w-2xl">
+            Get in touch
+          </h1>
+          <p className="mt-4 max-w-xl text-white/90">
+            Have a question about our courses? Send us an enquiry and
+            we&apos;ll get back to you.
+          </p>
+        </div>
       </Section>
 
       <Section background="white">

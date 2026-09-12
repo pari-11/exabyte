@@ -42,17 +42,19 @@ export default function AboutPage() {
     <main>
       <Section
         background="none"
-        className="bg-gradient-to-br from-primary to-accent text-white"
+        className="hero-gradient overflow-hidden text-white"
       >
-        <h1 className="font-heading text-3xl sm:text-4xl font-semibold max-w-2xl">
-          Who We Are
-        </h1>
-        <p className="mt-4 max-w-xl text-white/90">
-          Exabyte Academy is a Pune-based institute teaching practical,
-          project-based technology skills. We believe learning happens by
-          building, not by memorising — our students work on real projects,
-          assignments, and demonstrations.
-        </p>
+        <div className="relative z-10">
+          <h1 className="font-heading text-3xl sm:text-4xl font-semibold max-w-2xl">
+            Who We Are
+          </h1>
+          <p className="mt-4 max-w-xl text-white/90">
+            Exabyte Academy is a Pune-based institute teaching practical,
+            project-based technology skills. We believe learning happens by
+            building, not by memorising — our students work on real
+            projects, assignments, and demonstrations.
+          </p>
+        </div>
       </Section>
 
       <Section background="white">
@@ -109,7 +111,7 @@ export default function AboutPage() {
 
       <Section
         background="none"
-        className="bg-footer text-white text-center"
+        className="footer-gradient text-white text-center"
       >
         <h2 className="font-heading text-2xl sm:text-3xl font-semibold">
           Want to know more before you decide?

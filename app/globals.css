@@ -18,3 +18,108 @@ body {
   background: #ffffff;
   color: var(--color-navy);
 }
+
+/* Left-to-right color sweep on hover: a hard-edge gradient slides across
+   the text so it darkens progressively from left to right, like a ripple. */
+.sweep-link {
+  background-image: linear-gradient(
+    to right,
+    var(--color-ink) 50%,
+    var(--color-primary) 50%
+  );
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  transition: background-position 0.45s ease;
+}
+
+.sweep-link:hover,
+.sweep-link:focus-visible {
+  background-position: 0 0;
+}
+
+/* Horizontally auto-sliding testimonial strip: the track holds the
+   testimonial list twice back-to-back and scrolls by exactly one copy's
+   width, so the loop is seamless. */
+@keyframes testimonial-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.testimonial-track {
+  animation: testimonial-scroll 40s linear infinite;
+}
+
+.testimonial-track:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-track {
+    animation: none;
+  }
+}
+
+/* Hero + section-divider backdrop: both use this class, and the
+   background is pinned to the viewport (background-attachment: fixed)
+   rather than scrolling with each element. That makes every element that
+   wears this class a "window" onto the same fixed photo plane, so the
+   hero and every divider line up as if the page were scrolling over one
+   continuous image underneath it. Same trick for the blue tint overlay,
+   so the tint stays seamless too. Hero text gets a soft drop shadow so
+   it stays crisply readable over the brighter parts of the photo. */
+.hero-gradient {
+  position: relative;
+  background-image: url("/images/bg-2.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.hero-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 26, 77, 0.45) 0%,
+    rgba(0, 45, 122, 0.38) 28%,
+    rgba(0, 71, 184, 0.32) 58%,
+    rgba(15, 111, 214, 0.28) 100%
+  );
+  background-attachment: fixed;
+  pointer-events: none;
+}
+
+.hero-gradient h1,
+.hero-gradient p {
+  text-shadow: 0 2px 10px rgba(0, 10, 40, 0.55);
+}
+
+/* Footer gradient, sampled from the hero photo's palette: near-black navy,
+   deep blue, and the violet/magenta undertone from its highlights — kept
+   dark throughout so the white footer text stays readable. Fixed to the
+   viewport (same trick as .hero-gradient) so every element wearing this
+   class — the closing CTA section and the footer itself — is a window
+   onto one shared gradient plane, making the two read as one continuous
+   sweep instead of two separate gradients butted together. */
+.footer-gradient {
+  background: linear-gradient(
+    170deg,
+    #050b24 0%,
+    #10205c 30%,
+    #2a2f8f 55%,
+    #3a1f66 78%,
+    #0a0f2e 100%
+  );
+  background-attachment: fixed;
+  background-size: 100% 100vh;
+  background-repeat: no-repeat;
+}
