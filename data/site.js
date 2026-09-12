@@ -25,5 +25,11 @@ export const site = {
     { label: "Facebook", href: "https://facebook.com/exabyteacademy" },
     { label: "Instagram", href: "https://instagram.com/exabyteacademy" },
     { label: "LinkedIn", href: "https://linkedin.com/company/exabyteacademy" },
+    {
+      label: "WhatsApp",
+      href: "https://wa.me/919075942631?text=Hi%2C%20I%20would%20like%20to%20enquire%20about...",
+    },
   ],
+  whatsappLink:
+    "https://wa.me/919075942631?text=Hi%2C%20I%20would%20like%20to%20enquire%20about...",
 };

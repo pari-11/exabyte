@@ -1,4 +1,4 @@
-import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaWhatsapp } from "react-icons/fa";
 import Section from "@/components/ui/Section";
 import Card from "@/components/ui/Card";
 import EnquiryForm from "@/components/forms/EnquiryForm";
@@ -38,6 +38,21 @@ export default function ContactPage() {
                   className="text-sm text-ink hover:text-primary"
                 >
                   {site.phone}
+                </a>
+              </div>
+            </Card>
+
+            <Card className="flex items-start gap-3">
+              <FaWhatsapp size={18} className="text-primary mt-1" aria-hidden="true" />
+              <div>
+                <p className="text-xs font-medium text-navy/60">Message</p>
+                <a
+                  href={site.whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-ink hover:text-primary"
+                >
+                  Chat on WhatsApp
                 </a>
               </div>
             </Card>

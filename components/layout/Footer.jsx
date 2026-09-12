@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
 import { site } from "@/data/site";
 
 const socialIcons = {
   Facebook: FaFacebookF,
   Instagram: FaInstagram,
   LinkedIn: FaLinkedinIn,
+  WhatsApp: FaWhatsapp,
 };
 
 export default function Footer() {
