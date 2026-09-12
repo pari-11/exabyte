@@ -12,30 +12,18 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-footer text-white">
+    <footer className="bg-gradient-to-b from-footer to-black text-white">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-12">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex items-center gap-3">
+          <div
+            aria-hidden="true"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-white/20 bg-white/10 font-heading text-lg font-semibold text-sky"
+          >
+            E
+          </div>
           <div>
             <p className="font-heading text-xl font-semibold">{site.name}</p>
             <p className="mt-1 text-sm text-sky/80">Stay Connected</p>
-          </div>
-
-          <div className="flex items-center gap-4">
-            {site.socialLinks.map((link) => {
-              const Icon = socialIcons[link.label];
-              return (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={link.label}
-                  className="text-sky rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-footer hover:text-accent"
-                >
-                  {Icon && <Icon size={20} />}
-                </a>
-              );
-            })}
           </div>
         </div>
 
@@ -88,7 +76,25 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 border-t border-white/20 pt-6">
+        <div className="mt-10 flex items-center gap-4">
+          {site.socialLinks.map((link) => {
+            const Icon = socialIcons[link.label];
+            return (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={link.label}
+                className="text-sky rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-footer hover:text-accent"
+              >
+                {Icon && <Icon size={20} />}
+              </a>
+            );
+          })}
+        </div>
+
+        <div className="mt-6 border-t border-white/20 pt-6">
           <p className="text-sm text-white/70">
             © {year} {site.name}. All rights reserved.
           </p>
