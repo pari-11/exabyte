@@ -2,6 +2,7 @@ import { FaRobot, FaBrain, FaPen, FaFilePdf } from "react-icons/fa";
 import Section from "@/components/ui/Section";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
+import SectionDivider from "@/components/ui/SectionDivider";
 import EnquiryTriggerButton from "@/components/enquiry/EnquiryTriggerButton";
 import { courses, formats } from "@/data/courses";
 import { DEMO_TYPE } from "@/lib/enquiryTypes";
@@ -82,6 +83,8 @@ export default function CoursesPage() {
           })}
         </div>
       </Section>
+
+      <SectionDivider />
 
       <Section background="sky">
         <h2 className="font-heading text-2xl sm:text-3xl font-semibold text-ink">

@@ -7,6 +7,7 @@ import {
 import Section from "@/components/ui/Section";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
+import SectionDivider from "@/components/ui/SectionDivider";
 
 export const metadata = {
   title: "About | Exabyte Academy",
@@ -86,6 +87,8 @@ export default function AboutPage() {
           </Card>
         </div>
       </Section>
+
+      <SectionDivider />
 
       <Section background="sky">
         <h2 className="font-heading text-2xl sm:text-3xl font-semibold text-ink">
