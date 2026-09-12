@@ -4,6 +4,7 @@ import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import EnquiryTriggerButton from "@/components/enquiry/EnquiryTriggerButton";
 import { courses, formats } from "@/data/courses";
+import { DEMO_TYPE } from "@/lib/enquiryTypes";
 
 const courseIcons = {
   robotics: FaRobot,
@@ -160,7 +161,7 @@ export default function CoursesPage() {
           format.
         </p>
         <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-          <EnquiryTriggerButton variant="secondary">
+          <EnquiryTriggerButton format={DEMO_TYPE} variant="secondary">
             Book a Free Demo
           </EnquiryTriggerButton>
           <Button href="/contact" variant="secondary">

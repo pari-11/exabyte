@@ -35,7 +35,7 @@ export const courses = [
     emoji: "🤖",
     description: "Electronics, Arduino, sensors, motors, building real robots",
     longDescription:
-      "A hands-on introduction to electronics and robotics — students wire circuits, program Arduino boards, and work with sensors and motors to design, build, and demonstrate their own working robots.",
+      "Students develop a real understanding of electronic components and how robots actually function, building the skills and knowledge to design and build working prototypes of their own.",
     icon: "robotics",
     isOnline: false,
     syllabus: "/syllabus/robotics-syllabus.pdf",
@@ -81,7 +81,7 @@ export const courses = [
     emoji: "🧠",
     description: "Machine learning, computer vision, AI tools, hands-on projects",
     longDescription:
-      "A practical, project-first introduction to machine learning, computer vision, and modern AI tools — students build and apply real AI projects instead of only studying theory.",
+      "Students learn to use Python to harness AI, training models and working with real datasets to understand machine learning and modern AI tools — and how to use them ethically and sustainably, as an assistant that empowers rather than replaces.",
     icon: "ai",
     isOnline: false,
     syllabus: "/syllabus/artificial-intelligence-syllabus.pdf",
@@ -127,7 +127,7 @@ export const courses = [
     emoji: "📝",
     description: "Documentation, style guides, technical communication",
     longDescription:
-      "A live, instructor-led course in technical communication — students write real documentation, learn industry style guides, and leave with a portfolio of published work.",
+      "Students build a knack for writing clearly about any domain, however unfamiliar — identifying what matters, structuring real documentation, and mastering industry style guides — and leave with a portfolio of published work.",
     icon: "writing",
     isOnline: true,
     syllabus: "/syllabus/technical-writing-syllabus.pdf",

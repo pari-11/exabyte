@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { site } from "@/data/site";
 import { useEnquiryModal } from "@/components/enquiry/EnquiryModalProvider";
+import { DEMO_TYPE } from "@/lib/enquiryTypes";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,7 +38,7 @@ export default function Header() {
         <div className="hidden md:block">
           <button
             type="button"
-            onClick={() => open({})}
+            onClick={() => open({ format: DEMO_TYPE })}
             className="rounded-md bg-primary px-5 py-2.5 font-body text-sm font-medium text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 hover:bg-accent"
           >
             Book a Free Demo
@@ -89,7 +90,7 @@ export default function Header() {
             type="button"
             onClick={() => {
               setIsMenuOpen(false);
-              open({});
+              open({ format: DEMO_TYPE });
             }}
             className="rounded-md bg-primary px-5 py-2.5 font-body text-sm font-medium text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 hover:bg-accent"
           >

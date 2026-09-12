@@ -3,7 +3,6 @@ import {
   FaUsers,
   FaBriefcase,
   FaCertificate,
-  FaUserCircle,
 } from "react-icons/fa";
 import Section from "@/components/ui/Section";
 import Card from "@/components/ui/Card";
@@ -37,50 +36,6 @@ const reasons = [
     description: "Every course ends with a certificate recognising the skills built.",
   },
 ];
-
-const founders = [
-  {
-    name: "Founder Name",
-    role: "Co-Founder",
-    bio: "Bio coming soon.",
-  },
-  {
-    name: "Founder Name",
-    role: "Co-Founder",
-    bio: "Bio coming soon.",
-  },
-];
-
-const mentors = [
-  {
-    name: "Mentor Name",
-    role: "Mentor",
-    bio: "Bio coming soon.",
-  },
-  {
-    name: "Mentor Name",
-    role: "Mentor",
-    bio: "Bio coming soon.",
-  },
-  {
-    name: "Mentor Name",
-    role: "Mentor",
-    bio: "Bio coming soon.",
-  },
-];
-
-function TeamCard({ name, role, bio }) {
-  return (
-    <Card className="flex flex-col items-center text-center">
-      <FaUserCircle size={64} className="text-navy/30" aria-hidden="true" />
-      <h4 className="mt-4 font-heading text-base font-semibold text-ink">
-        {name}
-      </h4>
-      <p className="mt-1 text-sm text-primary">{role}</p>
-      <p className="mt-2 text-sm text-navy/70 italic">{bio}</p>
-    </Card>
-  );
-}
 
 export default function AboutPage() {
   return (
@@ -149,34 +104,6 @@ export default function AboutPage() {
               </Card>
             );
           })}
-        </div>
-      </Section>
-
-      <Section background="white">
-        <h2 className="font-heading text-2xl sm:text-3xl font-semibold text-ink">
-          Our Team
-        </h2>
-        <p className="mt-2 text-sm text-navy/70 italic">
-          Team profiles are placeholders and will be updated with real
-          photos and bios soon.
-        </p>
-
-        <h3 className="mt-10 font-heading text-lg font-semibold text-ink">
-          Founders
-        </h3>
-        <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {founders.map((person, i) => (
-            <TeamCard key={i} {...person} />
-          ))}
-        </div>
-
-        <h3 className="mt-10 font-heading text-lg font-semibold text-ink">
-          Mentors
-        </h3>
-        <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-6">
-          {mentors.map((person, i) => (
-            <TeamCard key={i} {...person} />
-          ))}
         </div>
       </Section>
 
