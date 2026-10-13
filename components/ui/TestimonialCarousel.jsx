@@ -82,7 +82,7 @@ export default function TestimonialCarousel({ items }) {
             <Card
               key={`${copy}-${i}`}
               aria-hidden={copy === 1 ? undefined : true}
-              className="w-72 sm:w-80 flex-shrink-0 snap-start flex flex-col"
+              className="w-full sm:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] flex-shrink-0 snap-start flex flex-col"
             >
               <p className="text-sm text-navy/80 italic flex-1">
                 &ldquo;{testimonial.quote}&rdquo;
