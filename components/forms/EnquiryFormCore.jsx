@@ -151,6 +151,7 @@ export default function EnquiryFormCore({
   const [status, setStatus] = useState("idle"); // idle | submitting | success | error
   const [formError, setFormError] = useState("");
   const inputRefs = useRef({});
+  const honeypotRef = useRef(null);
 
   useEffect(() => {
     onTypeChange?.(values.format);
@@ -208,10 +209,13 @@ export default function EnquiryFormCore({
     setFormError("");
 
     try {
-      const res = await fetch("/api/enquiry", {
+      const res = await fetch("/enquiry.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        body: JSON.stringify({
+          ...values,
+          website: honeypotRef.current?.value ?? "",
+        }),
       });
       const result = await res.json();
 
@@ -260,6 +264,16 @@ export default function EnquiryFormCore({
 
   return (
     <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
+      {/* Honeypot: hidden from people, filled in by bots; enquiry.php drops those. */}
+      <input
+        ref={honeypotRef}
+        type="text"
+        name="website"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="absolute -left-[9999px] h-0 w-0 opacity-0"
+      />
       <Field label="I'm looking for" error={errors.format} htmlFor="format">
         <select
           id="format"

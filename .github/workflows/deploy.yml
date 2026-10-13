@@ -1,0 +1,57 @@
+name: Deploy to Hosting Raja
+
+# Builds the static site and uploads it to the web root over FTP/FTPS.
+# Needs these repository secrets (Settings > Secrets and variables > Actions):
+#   FTP_SERVER, FTP_USERNAME, FTP_PASSWORD   from the FTP account in Enhance
+#   FTP_SERVER_DIR      web root on the server, e.g. /public_html/ (trailing slash)
+#   FTP_PROTOCOL        optional: ftps (default) or ftp
+#   RESEND_API_KEY, ENQUIRY_RECIPIENT_EMAIL, RESEND_FROM_EMAIL   same as .env.local
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # prebuild generates public/enquiry-data.json; next build writes out/.
+      - run: npm run build
+
+      - name: Write enquiry-config.php (secrets stay out of git)
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          ENQUIRY_RECIPIENT_EMAIL: ${{ secrets.ENQUIRY_RECIPIENT_EMAIL }}
+          RESEND_FROM_EMAIL: ${{ secrets.RESEND_FROM_EMAIL }}
+        run: |
+          node -e '
+            const q = (v) => JSON.stringify(v ?? "");
+            const e = process.env;
+            require("fs").writeFileSync("out/enquiry-config.php",
+              "<?php\nreturn [\n  \"api_key\" => " + q(e.RESEND_API_KEY) +
+              ",\n  \"recipient\" => " + q(e.ENQUIRY_RECIPIENT_EMAIL) +
+              ",\n  \"from\" => " + q(e.RESEND_FROM_EMAIL) + ",\n];\n");
+          '
+
+      - name: Upload out/ to the web root
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ${{ secrets.FTP_PROTOCOL || 'ftps' }}
+          local-dir: ./out/
+          server-dir: ${{ secrets.FTP_SERVER_DIR }}
