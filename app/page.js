@@ -85,6 +85,25 @@ export default function Home() {
         </div>
       </Section>
 
+      <section className="aurolynx-photo bg-peach-soft border-y border-peach-line">
+        <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
+          <div className="flex-1">
+            <p className="text-xs font-medium uppercase text-rose">
+              Have a peek at our learning kits
+            </p>
+            <h2 className="mt-1 font-heading text-xl sm:text-2xl font-semibold text-ink">
+              From First Idea to Your First Creation
+            </h2>
+            <p className="mt-1 text-xs sm:text-sm text-navy/80">
+              Robotics kits for kids, from the team that teaches robotics.
+            </p>
+          </div>
+          <Button href="/aurolynx" variant="peach">
+            Explore Aurolynx →
+          </Button>
+        </div>
+      </section>
+
       <Section background="white">
         <h2 className="font-heading text-2xl sm:text-3xl font-semibold text-ink">
           Our Courses

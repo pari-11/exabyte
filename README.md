@@ -4,6 +4,12 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 This is the Exabyte marketing/course site.
 
+## Aurolynx (`/aurolynx`)
+
+Aurolynx is the product arm: robotics and STEM learning kits. Kit content lives in `data/kits.js`; the page is `app/aurolynx/page.jsx`.
+
+**Planned, not built yet:** a "Buy Now" button (linking to Amazon or a similar store) will replace the "Book a Free Demo" button on `/aurolynx`. Until then, the header demo button is hidden on that page but its space is reserved (`showDemo` in `components/layout/Header.jsx`) so the nav doesn't shift, and the footer demo link is hidden too. Add it once the kits are on sale.
+
 ## Getting Started
 
 First, run the development server:

@@ -2,25 +2,23 @@ export const site = {
   name: "Exabyte Academy",
   tagline: "Learn. Build. Innovate.",
   phone: "+91 98508 81431",
+  footerPhones: ["+91 90759 42631", "+91 98508 81431"],
   email: "info@exabyteacademy.com",
   navLinks: [
     { label: "Home", href: "/" },
     { label: "About Us", href: "/about" },
     { label: "Courses", href: "/courses" },
     { label: "Robotics Summer Camp", href: "/robotics-summer-camp" },
-    { label: "Blog", href: "/blog" },
+    { label: "Aurolynx", href: "/aurolynx", tone: "peach" },
   ],
   footerLinks: {
     explore: [
       { label: "Home", href: "/" },
       { label: "About Us", href: "/about" },
       { label: "Courses", href: "/courses" },
+      { label: "Aurolynx", href: "/aurolynx" },
       { label: "Robotics Summer Camp", href: "/robotics-summer-camp" },
-      { label: "Blog", href: "/blog" },
       { label: "Book a Free Demo", href: "/contact" },
-    ],
-    support: [
-      { label: "Contact Us", href: "/contact" },
     ],
   },
   socialLinks: [
