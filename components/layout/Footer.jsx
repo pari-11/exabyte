@@ -72,7 +72,6 @@ export default function Footer() {
             <ul className="mt-4 flex flex-col gap-2 text-sm text-white/90">
               <li>{site.phone}</li>
               <li>{site.email}</li>
-              <li>{site.address}</li>
             </ul>
           </div>
         </div>

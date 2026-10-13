@@ -3,7 +3,6 @@ export const site = {
   tagline: "Learn. Build. Innovate.",
   phone: "+91 98508 81431",
   email: "info@exabyteacademy.com",
-  address: "123 MG Road, Bengaluru, Karnataka 560001",
   navLinks: [
     { label: "Home", href: "/" },
     { label: "About Us", href: "/about" },

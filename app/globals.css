@@ -67,34 +67,34 @@ body {
   }
 }
 
-/* Hero + section-divider backdrop: both use this class, and the
-   background is pinned to the viewport (background-attachment: fixed)
-   rather than scrolling with each element. That makes every element that
-   wears this class a "window" onto the same fixed photo plane, so the
-   hero and every divider line up as if the page were scrolling over one
-   continuous image underneath it. Same trick for the blue tint overlay,
-   so the tint stays seamless too. Hero text gets a soft drop shadow so
-   it stays crisply readable over the brighter parts of the photo. */
+/* Hero + section-divider backdrop: the photo and its blue tint are pinned
+   to the viewport, so every element that wears this class is a "window"
+   onto the same fixed image plane. That makes the hero and every divider
+   line up as if the page were scrolling over one continuous image.
+   Done with a position: fixed layer clipped to the element (clip-path)
+   instead of background-attachment: fixed, which looks identical but is
+   composited on the GPU, so scrolling stays smooth instead of repainting
+   the photo on every frame. Hero text gets a soft drop shadow so it stays
+   crisply readable over the brighter parts of the photo. */
 .hero-gradient {
   position: relative;
-  background-image: url("/images/bg-2.png");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  clip-path: inset(0);
 }
 
 .hero-gradient::before {
   content: "";
-  position: absolute;
+  position: fixed;
   inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(0, 26, 77, 0.45) 0%,
-    rgba(0, 45, 122, 0.38) 28%,
-    rgba(0, 71, 184, 0.32) 58%,
-    rgba(15, 111, 214, 0.28) 100%
-  );
-  background-attachment: fixed;
+  background-image: linear-gradient(
+      135deg,
+      rgba(0, 26, 77, 0.45) 0%,
+      rgba(0, 45, 122, 0.38) 28%,
+      rgba(0, 71, 184, 0.32) 58%,
+      rgba(15, 111, 214, 0.28) 100%
+    ),
+    url("/images/bg-2.png");
+  background-size: cover;
+  background-position: center;
   pointer-events: none;
 }
 
