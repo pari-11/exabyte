@@ -49,32 +49,6 @@ body {
   background-position: 0 0;
 }
 
-/* Horizontally auto-sliding testimonial strip: the track holds the
-   testimonial list twice back-to-back and scrolls by exactly one copy's
-   width, so the loop is seamless. */
-@keyframes testimonial-scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.testimonial-track {
-  animation: testimonial-scroll 40s linear infinite;
-}
-
-.testimonial-track:hover {
-  animation-play-state: paused;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .testimonial-track {
-    animation: none;
-  }
-}
-
 /* Hero + section-divider backdrop: the photo and its blue tint are pinned
    to the viewport, so every element that wears this class is a "window"
    onto the same fixed image plane. That makes the hero and every divider
