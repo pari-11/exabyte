@@ -1,0 +1,16 @@
+# Apache rules for the static export (served from public_html).
+Options -Indexes
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # Force HTTPS.
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# Secrets for enquiry.php live here; never serve this file.
+<Files "enquiry-config.php">
+  Require all denied
+</Files>
