@@ -1,4 +1,4 @@
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaWhatsapp } from "react-icons/fa";
+import { FaPhone, FaEnvelope, FaWhatsapp } from "react-icons/fa";
 import Section from "@/components/ui/Section";
 import Card from "@/components/ui/Card";
 import EnquiryForm from "@/components/forms/EnquiryForm";
@@ -7,7 +7,7 @@ import { site } from "@/data/site";
 export const metadata = {
   title: "Contact | Exabyte Academy",
   description:
-    "Get in touch with Exabyte Academy — send a course enquiry or find our phone, email, and address.",
+    "Get in touch with Exabyte Academy — send a course enquiry or find our phone and email.",
 };
 
 export default function ContactPage() {
@@ -69,18 +69,6 @@ export default function ContactPage() {
                 >
                   {site.email}
                 </a>
-              </div>
-            </Card>
-
-            <Card className="flex items-start gap-3">
-              <FaMapMarkerAlt
-                size={18}
-                className="text-primary mt-1"
-                aria-hidden="true"
-              />
-              <div>
-                <p className="text-xs font-medium text-navy/60">Address</p>
-                <p className="text-sm text-ink">{site.address}</p>
               </div>
             </Card>
           </div>

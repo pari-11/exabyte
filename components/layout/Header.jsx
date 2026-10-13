@@ -15,6 +15,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { open } = useEnquiryModal();
   const pathname = usePathname();
+  const showDemo = !pathname.startsWith("/aurolynx");
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-line">
@@ -38,7 +39,9 @@ export default function Header() {
                 href={link.href}
                 aria-current={active ? "page" : undefined}
                 className={`inline-block rounded-sm font-body underline-offset-4 transition-transform duration-150 hover:-translate-y-0.5 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
-                  active ? "underline decoration-2 text-primary" : "no-underline text-navy"
+                  active
+                    ? `underline decoration-2 ${link.tone === "peach" ? "text-rose" : "text-primary"}`
+                    : `no-underline ${link.tone === "peach" ? "text-rose" : "text-navy"}`
                 }`}
               >
                 {link.label}
@@ -47,7 +50,7 @@ export default function Header() {
           })}
         </nav>
 
-        <div className="hidden md:block">
+        <div className={`hidden md:block ${showDemo ? "" : "invisible"}`}>
           <button
             type="button"
             onClick={() => open({ format: DEMO_TYPE })}
@@ -97,23 +100,27 @@ export default function Header() {
                 onClick={() => setIsMenuOpen(false)}
                 aria-current={active ? "page" : undefined}
                 className={`inline-block self-start rounded-sm font-body underline-offset-4 hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
-                  active ? "underline decoration-2 text-primary" : "no-underline text-navy"
+                  active
+                    ? `underline decoration-2 ${link.tone === "peach" ? "text-rose" : "text-primary"}`
+                    : `no-underline ${link.tone === "peach" ? "text-rose" : "text-navy"}`
                 }`}
               >
                 {link.label}
               </Link>
             );
           })}
-          <button
-            type="button"
-            onClick={() => {
-              setIsMenuOpen(false);
-              open({ format: DEMO_TYPE });
-            }}
-            className="rounded-md bg-primary px-5 py-2.5 font-body text-sm font-medium text-white transition-all duration-150 hover:-translate-y-0.5 hover:bg-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-          >
-            Book a Free Demo
-          </button>
+          {showDemo && (
+            <button
+              type="button"
+              onClick={() => {
+                setIsMenuOpen(false);
+                open({ format: DEMO_TYPE });
+              }}
+              className="rounded-md bg-primary px-5 py-2.5 font-body text-sm font-medium text-white transition-all duration-150 hover:-translate-y-0.5 hover:bg-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+            >
+              Book a Free Demo
+            </button>
+          )}
         </div>
       )}
     </header>

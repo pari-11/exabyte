@@ -10,6 +10,14 @@
   --color-line: #d6e9ff;
   --color-footer: #0a3d91;
 
+  /* Aurolynx sub-brand accent */
+  --color-peach: #de7383;
+  --color-peach-soft: #fdeef0;
+  --color-peach-line: #f5d0d6;
+  --color-peach-deep: #b55765;
+  --color-faded-blue: #45648f;
+  --color-rose: #b55765;
+
   --font-heading: var(--font-poppins);
   --font-body: var(--font-inter);
 }
@@ -67,40 +75,116 @@ body {
   }
 }
 
-/* Hero + section-divider backdrop: both use this class, and the
-   background is pinned to the viewport (background-attachment: fixed)
-   rather than scrolling with each element. That makes every element that
-   wears this class a "window" onto the same fixed photo plane, so the
-   hero and every divider line up as if the page were scrolling over one
-   continuous image underneath it. Same trick for the blue tint overlay,
-   so the tint stays seamless too. Hero text gets a soft drop shadow so
-   it stays crisply readable over the brighter parts of the photo. */
+/* Hero + section-divider backdrop: the photo and its blue tint are pinned
+   to the viewport, so every element that wears this class is a "window"
+   onto the same fixed image plane. That makes the hero and every divider
+   line up as if the page were scrolling over one continuous image.
+   Done with a position: fixed layer clipped to the element (clip-path)
+   instead of background-attachment: fixed, which looks identical but is
+   composited on the GPU, so scrolling stays smooth instead of repainting
+   the photo on every frame. Hero text gets a soft drop shadow so it stays
+   crisply readable over the brighter parts of the photo. */
 .hero-gradient {
   position: relative;
-  background-image: url("/images/bg-2.png");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  clip-path: inset(0);
 }
 
 .hero-gradient::before {
   content: "";
-  position: absolute;
+  position: fixed;
   inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(0, 26, 77, 0.45) 0%,
-    rgba(0, 45, 122, 0.38) 28%,
-    rgba(0, 71, 184, 0.32) 58%,
-    rgba(15, 111, 214, 0.28) 100%
-  );
-  background-attachment: fixed;
+  background-image: linear-gradient(
+      135deg,
+      rgba(0, 26, 77, 0.45) 0%,
+      rgba(0, 45, 122, 0.38) 28%,
+      rgba(0, 71, 184, 0.32) 58%,
+      rgba(15, 111, 214, 0.28) 100%
+    ),
+    url("/images/bg-2.png");
+  background-size: cover;
+  background-position: center;
   pointer-events: none;
 }
 
 .hero-gradient h1,
 .hero-gradient p {
   text-shadow: 0 2px 10px rgba(0, 10, 40, 0.55);
+}
+
+/* Aurolynx hero: same pinned-photo technique as .hero-gradient, using the
+   magenta bg-3 image with a deep plum tint so white text stays readable. */
+.aurolynx-hero {
+  position: relative;
+  clip-path: inset(0);
+}
+
+.aurolynx-hero::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: linear-gradient(
+      135deg,
+      rgba(60, 5, 45, 0.5) 0%,
+      rgba(90, 10, 65, 0.4) 55%,
+      rgba(120, 20, 85, 0.32) 100%
+    ),
+    url("/images/bg-3.png");
+  background-size: cover;
+  background-position: center;
+  pointer-events: none;
+}
+
+.aurolynx-hero h1,
+.aurolynx-hero p {
+  text-shadow: 0 2px 10px rgba(40, 0, 30, 0.55);
+}
+
+/* Aurolynx teaser: a dark-blue circuit-board tile (traces, nodes, gears,
+   plus marks) that is fully opaque on the right and fades out toward the
+   left so the copy on the peach band stays readable. */
+.aurolynx-pattern {
+  position: relative;
+  isolation: isolate;
+}
+
+.aurolynx-pattern::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96' fill='none' stroke='%2312345a' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M0 20h22l8 8h20'/%3E%3Ccircle cx='54' cy='28' r='4' fill='%2312345a'/%3E%3Cpath d='M70 8v22l10 10h16'/%3E%3Ccircle cx='70' cy='8' r='3.5' fill='%2312345a'/%3E%3Cpath d='M12 60l12-12h14v20'/%3E%3Ccircle cx='38' cy='72' r='4' fill='%2312345a'/%3E%3Ccircle cx='72' cy='68' r='9'/%3E%3Ccircle cx='72' cy='68' r='3' fill='%2312345a'/%3E%3Cpath d='M72 55v4M72 77v4M59 68h4M81 68h4M63 59l3 3M78 74l3 3M81 59l-3 3M66 74l-3 3'/%3E%3Cpath d='M10 86h12M16 80v12'/%3E%3Cpath d='M48 90h22'/%3E%3C/svg%3E");
+  background-size: 96px 96px;
+  opacity: 0.22;
+  -webkit-mask-image: linear-gradient(to right, transparent 35%, #000 90%);
+  mask-image: linear-gradient(to right, transparent 35%, #000 90%);
+}
+
+@media (max-width: 639px) {
+  .aurolynx-pattern::before {
+    -webkit-mask-image: linear-gradient(to bottom, transparent 55%, #000 100%);
+    mask-image: linear-gradient(to bottom, transparent 55%, #000 100%);
+  }
+}
+
+/* Aurolynx teaser, photo variant: the same pinned hero photo (a window onto
+   the fixed plane, so it lines up with the hero above) under a peach wash. */
+.aurolynx-photo {
+  position: relative;
+  clip-path: inset(0);
+}
+
+.aurolynx-photo::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: linear-gradient(
+      rgba(255, 240, 231, 0.92),
+      rgba(255, 229, 214, 0.92)
+    ),
+    url("/images/bg-2.png");
+  background-size: cover;
+  background-position: center;
+  pointer-events: none;
 }
 
 /* Footer gradient, sampled from the hero photo's palette: near-black navy,
@@ -113,11 +197,10 @@ body {
 .footer-gradient {
   background: linear-gradient(
     170deg,
-    #050b24 0%,
-    #10205c 30%,
-    #2a2f8f 55%,
-    #3a1f66 78%,
-    #0a0f2e 100%
+    #3b1229 0%,
+    #6e2a47 35%,
+    #a34a61 70%,
+    #b55765 100%
   );
   background-attachment: fixed;
   background-size: 100% 100vh;
