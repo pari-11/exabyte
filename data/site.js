@@ -26,7 +26,7 @@ export const site = {
   },
   socialLinks: [
     { label: "Facebook", href: "https://facebook.com/exabyteacademy" },
-    { label: "Instagram", href: "https://instagram.com/exabyteacademy" },
+    { label: "Instagram", href: "https://instagram.com/exabyte_aurolynx" },
     { label: "LinkedIn", href: "https://linkedin.com/company/exabyteacademy" },
     {
       label: "WhatsApp",
