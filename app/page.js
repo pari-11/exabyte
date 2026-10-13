@@ -4,6 +4,7 @@ import Section from "@/components/ui/Section";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import SectionDivider from "@/components/ui/SectionDivider";
+import TestimonialCarousel from "@/components/ui/TestimonialCarousel";
 import { courses, formats } from "@/data/courses";
 import { testimonials } from "@/data/testimonials";
 
@@ -225,23 +226,8 @@ export default function Home() {
           Hear from families who&apos;ve been part of the Exabyte Academy
           journey.
         </p>
-        <div className="mt-10 overflow-hidden">
-          <div className="testimonial-track flex w-max gap-6">
-            {[...testimonials, ...testimonials].map((testimonial, i) => (
-              <Card
-                key={i}
-                className="w-72 sm:w-80 flex-shrink-0 flex flex-col"
-              >
-                <p className="text-sm text-navy/80 italic flex-1">
-                  &ldquo;{testimonial.quote}&rdquo;
-                </p>
-                <p className="mt-4 text-sm font-semibold text-ink">
-                  {testimonial.name}
-                </p>
-                <p className="text-xs text-navy/60">{testimonial.role}</p>
-              </Card>
-            ))}
-          </div>
+        <div className="mt-10">
+          <TestimonialCarousel items={testimonials} />
         </div>
       </Section>
 
