@@ -5,7 +5,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Card from "@/components/ui/Card";
 
 const arrowClass =
-  "flex h-10 w-10 items-center justify-center rounded-full border border-line bg-white text-primary shadow-sm transition-colors hover:bg-sky focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2";
+  "flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-line bg-white text-primary shadow-sm transition-colors hover:bg-sky focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2";
 
 const GAP = 24;
 
@@ -71,18 +71,27 @@ export default function TestimonialCarousel({ items }) {
   }
 
   return (
-    <div className="relative">
+    <div className="flex items-center gap-2 sm:gap-4">
+      <button
+        type="button"
+        aria-label="Previous testimonials"
+        onClick={() => scrollByCard(-1)}
+        className={arrowClass}
+      >
+        <FaChevronLeft size={14} aria-hidden="true" />
+      </button>
+
       <div
         ref={trackRef}
         onScroll={handleScroll}
-        className="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="flex min-w-0 flex-1 gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth py-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {copies.map((copy) =>
           items.map((testimonial, i) => (
             <Card
               key={`${copy}-${i}`}
               aria-hidden={copy === 1 ? undefined : true}
-              className="w-72 sm:w-80 flex-shrink-0 snap-start flex flex-col"
+              className="w-full sm:w-[calc((100%-24px)/2)] lg:w-[calc((100%-48px)/3)] flex-shrink-0 snap-start flex flex-col"
             >
               <p className="text-sm text-navy/80 italic flex-1">
                 &ldquo;{testimonial.quote}&rdquo;
@@ -96,24 +105,14 @@ export default function TestimonialCarousel({ items }) {
         )}
       </div>
 
-      <div className="mt-6 flex justify-center gap-3">
-        <button
-          type="button"
-          aria-label="Previous testimonials"
-          onClick={() => scrollByCard(-1)}
-          className={arrowClass}
-        >
-          <FaChevronLeft size={14} aria-hidden="true" />
-        </button>
-        <button
-          type="button"
-          aria-label="Next testimonials"
-          onClick={() => scrollByCard(1)}
-          className={arrowClass}
-        >
-          <FaChevronRight size={14} aria-hidden="true" />
-        </button>
-      </div>
+      <button
+        type="button"
+        aria-label="Next testimonials"
+        onClick={() => scrollByCard(1)}
+        className={arrowClass}
+      >
+        <FaChevronRight size={14} aria-hidden="true" />
+      </button>
     </div>
   );
 }

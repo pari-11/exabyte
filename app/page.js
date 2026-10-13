@@ -93,7 +93,7 @@ export default function Home() {
               Have a peek at our learning kits
             </p>
             <h2 className="mt-1 font-heading text-xl sm:text-2xl font-semibold text-ink">
-              From First Idea to Your First Creation
+              From First Idea to First Creation
             </h2>
             <p className="mt-1 text-xs sm:text-sm text-navy/80">
               Robotics kits for kids, from the team that teaches robotics.
